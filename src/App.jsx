@@ -15,7 +15,7 @@ function App() {
     if (currentTime > 0) {
       interval.current = setInterval(() => {
         setCurrentTime((timer) => timer - 1);
-      }, 100);
+      }, 100); //Faster timer means easier testing
     }
   }
   function stopTimer() {

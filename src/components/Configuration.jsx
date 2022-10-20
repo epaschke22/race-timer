@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function Configuration(props) {
   let navigateTo = useNavigate();
   const handleStart = () => {
     props.startTimer();
-    navigateTo('/timer');
+    navigateTo("/timer");
   };
   return (
     <div>
@@ -19,7 +19,7 @@ function Configuration(props) {
       <input
         type="number"
         value={props.numPlayers}
-        onChange={(e) => props.setNumContestants(e.target.value)}
+        onChange={(e) => props.setNumPlayers(e.target.value)}
       />
       <button onClick={handleStart}>Start the Timer!</button>
     </div>

@@ -1,30 +1,32 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
-import Configuration from './components/Configuration';
-import Timer from './components/Timer';
-import Race from './components/Race';
-import { useState, useRef } from 'react';
-import Background from './components/Background';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import Configuration from "./components/Configuration";
+import Timer from "./components/Timer";
+import Race from "./components/Race";
+import { useState, useRef } from "react";
+import Background from "./components/Background";
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
+  const [currentTime, setCurrentTime] = useState(60);
   const [numPlayers, setNumPlayers] = useState(20);
 
   let interval = useRef();
   function startTimer() {
-    interval.current = setInterval(() => {
-      setCurrentTime((timer) => timer - 1);
-    }, 1000);
+    if (currentTime > 0) {
+      interval.current = setInterval(() => {
+        setCurrentTime((timer) => timer - 1);
+      }, 100);
+    }
   }
   function stopTimer() {
-    console.log('stopping');
+    console.log("stopping");
     clearInterval(interval.current);
   }
 
   return (
     <>
       <Router>
-        <Link to="/config">Config Screen</Link> |{' '}
+        <Link to="/config">Config Screen</Link> |{" "}
         <Link to="/timer">Timer Screen</Link>
         <Routes>
           <Route
